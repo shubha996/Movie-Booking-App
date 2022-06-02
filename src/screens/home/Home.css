@@ -1,0 +1,33 @@
+/* Upcoming Movies Section */
+.heading{
+    background-color: #ff9999;
+    padding: 8px;
+    text-align: center;
+    font-size: 1rem;
+}
+.imagelist-upcoming{
+    margin: 0;
+    display: flex!important;
+}
+.imagelistitem-upcoming{
+    flex: 0 0 auto;
+}
+
+/* Released Movies Section */
+.flex-container{
+    display: flex;
+}
+.left{
+    width: 76%;
+    margin: 16px;
+}
+.right{
+    width: 24%;
+    margin: 16px;
+}
+.imagelist-released{
+    gap: 70px!important;
+}
+.imagelistitem-released:hover{
+    cursor: pointer;
+}
