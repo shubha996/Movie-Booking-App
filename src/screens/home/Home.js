@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Header from '../../common/header/Header';
 import moviesData from '../../common/moviesData';
-import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
+import genres from '../../common/genres';
+import artists from '../../common/artists';
+import { FormControl, ImageList, ImageListItem, ImageListItemBar, Card, TextField, Select, MenuItem, InputLabel, Checkbox, Typography, createTheme, Button } from '@mui/material';
 import './Home.css';
 
 class Home extends Component {
   render() {
+      const theme = createTheme({});
     return (
       <div className='main-container'>
 {/* Header */}
@@ -32,6 +35,7 @@ class Home extends Component {
 
 {/* Image List for Released Movies */}
             <div className='flex-container'>
+            {/* Movie Image List */}
                 <div className="left">
                     <ImageList className='imagelist-released' cols={3}>
                         {
@@ -47,8 +51,47 @@ class Home extends Component {
                         }
                     </ImageList>
                 </div>
+            {/* Form Filter Div */}
                 <div className="right">
-
+                    <Card style = {{margin: theme.spacing(2)}}>
+                        <FormControl style={{color: theme.palette.primary.light, margin: theme.spacing(2)}}>
+                            <Typography >
+                                FIND MOVIES BY:
+                            </Typography>
+                        </FormControl>
+                        <FormControl variant="standard" style = {{margin: theme.spacing(2) }}>
+                            <TextField id="standard-basic" label="Movie Name" variant="standard" />
+                        </FormControl>
+                        <FormControl variant="standard" style={{width: theme.spacing(24.5), margin: theme.spacing(2)}}>
+                            <InputLabel id="genres">Genres</InputLabel>
+                            <Select labelId="genres" id="genres-input" label="Age">
+                                {
+                                    genres.map((data) => (
+                                        <MenuItem><Checkbox/>{data.name}</MenuItem>
+                                    ))    
+                                }
+                            </Select>
+                        </FormControl><br />
+                        <FormControl variant="standard" style={{width: theme.spacing(24.5), margin: theme.spacing(2)}}>
+                            <InputLabel id="artist">Artists</InputLabel>
+                            <Select labelId="artist" id="artist-input" label="Age">
+                                {
+                                    artists.map((data) => (
+                                        <MenuItem><Checkbox/>{`${data.first_name + ' ' + data.last_name}`}</MenuItem>
+                                    ))
+                                }
+                            </Select>
+                        </FormControl>
+                        <FormControl style={{width: theme.spacing(24.5), margin: theme.spacing(2)}}>
+                            <TextField type="date" variant='standard' label="Release Date Start" InputLabelProps={{shrink: true,}}></TextField>
+                        </FormControl><br />
+                        <FormControl style={{width: theme.spacing(24.5), margin: theme.spacing(2)}}>
+                            <TextField type="date" variant='standard' label="Release Date End" InputLabelProps={{shrink: true}}></TextField>
+                        </FormControl><br />
+                        <FormControl style={{width: theme.spacing(24.5), margin: theme.spacing(2)}}>
+                            <Button variant="contained">Apply</Button>
+                        </FormControl>
+                    </Card>
                 </div>
 
             </div>
