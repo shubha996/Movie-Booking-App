@@ -28,6 +28,3 @@
 .imagelist-released{
     gap: 70px!important;
 }
-.imagelistitem-released:hover{
-    cursor: pointer;
-}

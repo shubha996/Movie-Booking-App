@@ -1,7 +1,13 @@
 .head{
     background-color: #222;
     height: 36px;
-    padding: 8px 32px 8px 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 #headerLogo{
     background-color: #ff7f7f;
@@ -10,4 +16,19 @@
 }
 @keyframes rotater {
     100%{transform: rotate(360deg);}
+}
+.btn-header{
+    height: 32px;
+    border: none;
+    border-radius: 3px;
+    font-size: 17px;
+}
+.bookshow-btn{
+    background-color: #ff7f7f;
+
+}
+.buttons{
+    display: flex;
+    width: 15%;
+    justify-content: space-between;
 }
