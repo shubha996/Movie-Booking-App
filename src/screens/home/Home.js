@@ -3,7 +3,8 @@ import Header from '../../common/header/Header';
 import moviesData from '../../common/moviesData';
 import genres from '../../common/genres';
 import artists from '../../common/artists';
-import { FormControl, ImageList, ImageListItem, ImageListItemBar, Card, TextField, MenuItem, Checkbox, Typography, createTheme, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { FormControl, FormGroup, ImageList, ImageListItem, ImageListItemBar, Card, TextField, Checkbox, Typography, createTheme, Button, FormControlLabel } from '@mui/material';
 import './Home.css';
 
 class Home extends Component {
@@ -89,11 +90,13 @@ class Home extends Component {
                         {
                             moviesData.map((data) => (
                                 <>
-                                    <ImageListItem className='imagelistitem-released' key={data.id}>
-                                        <img src={`${data.poster_url}`} alt={`${data.title}`} />
-                                        <ImageListItemBar title = {data.title} subtitle = {<span>Release Date : {new Date(data.release_date).toDateString()}</span>}>
-                                        </ImageListItemBar>
-                                    </ImageListItem>
+                                    <Link to={'/details/' + `${data.id}`}>
+                                        <ImageListItem className='imagelistitem-released' key={data.id}>
+                                            <img src={`${data.poster_url}`} alt={`${data.title}`} />
+                                            <ImageListItemBar key={data.id} title = {data.title} subtitle = {<span>Release Date : {new Date(data.release_date).toDateString()}</span>}>
+                                            </ImageListItemBar>
+                                        </ImageListItem>
+                                    </Link>
                                 </>
                             ))
                         }
@@ -103,7 +106,7 @@ class Home extends Component {
                 <div className="right">
                     <Card style = {{margin: theme.spacing(2)}}>
                         <FormControl style={{color: theme.palette.primary.light, margin: theme.spacing(2)}}>
-                            <Typography >
+                            <Typography component={'span'}>
                                 FIND MOVIES BY:
                             </Typography>
                         </FormControl>
@@ -114,7 +117,9 @@ class Home extends Component {
                             <TextField select variant='standard' label="Genres">
                                 {
                                     genres.map((data) => (
-                                        <MenuItem key={data.id}><Checkbox/>{data.name}</MenuItem>
+                                        <FormGroup>
+                                            <FormControlLabel className='checkboxItem' key={data.id} control = {<Checkbox />} label={`${data.name}`}/>
+                                        </FormGroup>
                                     ))    
                                 }
                             </TextField>
@@ -123,7 +128,9 @@ class Home extends Component {
                             <TextField variant='standard' select label="Artists">
                                 {
                                     artists.map((data) => (
-                                        <MenuItem key={data.id}><Checkbox/>{`${data.first_name + ' ' + data.last_name}`}</MenuItem>
+                                        <FormGroup>
+                                            <FormControlLabel className='checkboxItem' key={data.id} control = {<Checkbox />} label={`${data.first_name + ' ' + data.last_name}`}/>
+                                        </FormGroup>
                                     ))
                                 }
                             </TextField>

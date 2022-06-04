@@ -28,3 +28,9 @@
 .imagelist-released{
     gap: 70px!important;
 }
+.checkboxItem{
+    margin-left: 15px;
+}
+.checkboxItem:hover{
+    background-color: lightgrey;
+}

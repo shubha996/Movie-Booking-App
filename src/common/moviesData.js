@@ -9,7 +9,7 @@ let moviesData = [
         ],
         duration: 177,
         poster_url: "https://upload.wikimedia.org/wikipedia/en/1/1c/Godfather_ver1.jpg",
-        trailer_url: "https://www.youtube.com/watch/?v=sY1S34973zA",
+        trailer_url: "https://www.youtube.com/watch?v=sY1S34973zA",
         wiki_url: "https://en.wikipedia.org/wiki/The_Godfather",
         release_date: "1972-03-15T00:00:00+05:30",
         censor_board_rating: "R",
