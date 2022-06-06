@@ -25,10 +25,10 @@
 }
 .bookshow-btn{
     background-color: #ff7f7f;
-
+    margin-right: 20px;
 }
 .buttons{
     display: flex;
     width: 15%;
-    justify-content: space-between;
+    justify-content: flex-end;
 }

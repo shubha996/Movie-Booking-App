@@ -8,9 +8,6 @@
 .backbutton:hover{
     cursor: pointer;
 }
-.header .buttons{
-    display: none;
-}
 
 .content{
     display: flex;

@@ -1,0 +1,12 @@
+.login-Container{
+    display: flex!important;
+    flex-direction: row!important;
+}
+.login{
+    text-align: center;
+}
+.login-Container{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}

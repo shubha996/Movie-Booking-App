@@ -1,9 +1,9 @@
 import { Typography, Grid, ImageListItemBar, ImageListItem } from '@mui/material';
-import React from 'react'
+import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import React, { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../common/header/Header';
 import moviesData from '../../common/moviesData';
-import StarRating from './StarRating';
 import './Details.css';
 
 const Details = () => {
@@ -11,8 +11,10 @@ const Details = () => {
     const { id } = params;
 
     const item = moviesData.filter((v) => {
-        return v.id == id;  
+        return v.id === id;  
     })
+
+    const [rating, setRating] = useState(null);
 
     return (
         <div className='main-container'>
@@ -59,12 +61,31 @@ const Details = () => {
                   </div>
               </div>
               <div className="right">
-                  <Typography>
-                      <b>Rate this movie: </b>
-                  </Typography>
-                  <Typography>
-                      <StarRating />
-                  </Typography>
+                <Typography>
+                    <b>Rate this movie: </b>
+                </Typography>
+                <Typography>
+                    <div>
+                        {[...Array(5)].map((data, i) => {
+                            const ratingValue = i + 1;
+                            return (
+                            <label>
+                                <input
+                                key={ratingValue}
+                                style={{ display: "none" }}
+                                name="rating"
+                                type="radio"
+                                value={ratingValue}
+                                onClick={() => setRating(ratingValue)}
+                                />
+                                <StarBorderOutlinedIcon
+                                style={{ color: ratingValue <= rating ? "orange" : "black" }}
+                                />
+                            </label>
+                            );
+                        })}
+                    </div>
+                </Typography>
                   <Typography style={{marginTop: '16px', marginBottom: '16px'}}>
                       <b>Artists: </b>
                   </Typography>

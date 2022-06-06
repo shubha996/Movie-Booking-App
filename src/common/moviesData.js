@@ -145,7 +145,7 @@ let moviesData = [
                 "last_name": "Hathaway",
                 "role_type": "ACTOR",
                 "profile_description": "Anne Jacqueline Hathaway is an American actress and singer. One of the world's highest-paid actresses in 2015, she has received multiple awards, including an Academy Award, a Golden Globe, a British Academy Film Award, and an Emmy. Her films have earned $6.4 billion worldwide, and she appeared in the Forbes Celebrity 100 in 2009.",
-                "profile_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Anne_Hathaway_in_2017.png",
+                "profile_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Rajkumar_Rao_Filmfare_Glamour_and_Style_Awards_2019_%28cropped%29.jpg",
                 "wiki_url": "https://en.wikipedia.org/wiki/Anne_Hathaway"
             }
         ]

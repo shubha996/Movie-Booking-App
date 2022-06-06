@@ -1,0 +1,20 @@
+.back-btn{
+    padding: 10px;
+}
+.bookshowcontent{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.formElements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
+    height: 300px;
+}
+.bookshow{
+    margin-bottom: 65px;
+}

@@ -8,13 +8,22 @@ import { FormControl, FormGroup, ImageList, ImageListItem, ImageListItemBar, Car
 import './Home.css';
 
 const Homefn = () => {
-    const theme = createTheme({});
+  const allMoviesData = moviesData;
+  const filteredData = [];
+
+  const theme = createTheme({});
 
   const [movieName, setMovieName] = useState('');
   const [genresName, setGenresName] = useState([]);
   const [artistsName, setArtistsName] = useState([]);
   const [fromDate, setFromDate] = useState('');
   const [endDate, setEndDate] = useState('');
+
+  const generNameChangleHandler = (e) => {
+    const value = e.target.value;
+    setGenresName(value);
+    console.log(value);
+  }
 
   console.log(genresName);
   
@@ -48,7 +57,7 @@ const Homefn = () => {
         {/* Movie Image List */}
         <div className="left">
           <ImageList className="imagelist-released" cols={3}>
-            {moviesData.map((data) => (
+            {allMoviesData.map((data) => (
               <>
                 <Link to={"/details/" + `${data.id}`}>
                   <ImageListItem
@@ -99,8 +108,9 @@ const Homefn = () => {
               variant="standard"
               style={{ width: theme.spacing(24.5), margin: theme.spacing(2) }}
             >
-              <TextField select variant="standard" label="Genres">
-                {genres.map((data) => (
+              <TextField select multiline variant="standard" label="Genres" onChange={() => generNameChangleHandler}>
+                {
+                  genres.map((data) => (
                   <FormGroup>
                     <FormControlLabel
                       className="checkboxItem"
@@ -109,7 +119,8 @@ const Homefn = () => {
                       label={`${data.name}`}
                     />
                   </FormGroup>
-                ))}
+                  ))
+                }
               </TextField>
             </FormControl>
             <br />
@@ -157,7 +168,7 @@ const Homefn = () => {
             <FormControl
               style={{ width: theme.spacing(24.5), margin: theme.spacing(2) }}
             >
-              <Button variant="contained">
+              <Button variant="contained" >
                 Apply
               </Button>
             </FormControl>
